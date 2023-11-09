@@ -1,3 +1,32 @@
-<ul>
-    <li *ngFor="let movie of movies" class="text-white">{{ movie.original_title }}</li>
-</ul>
+<div class="p-10 space-y-20">
+    <div>
+        <h1 class="text-3xl font-bold mb-5 text-left">Trending</h1>
+        <div class="flex flex-row space-x-5 overflow-x-auto w-full">
+            <div *ngFor="let trendingMovie of trendingMovies" class="flex-shrink-0">
+                <img src="https://image.tmdb.org/t/p/original/{{trendingMovie.poster_path}}" alt="poster foto van {{trendingMovie.original_title}}" class="h-60 w-42 shadow-2xl rounded-md cursor-pointer">
+                <p class="movie-title absolute top-0 left-0 right-0 bg-black bg-opacity-75 text-white text-center p-2 transition-opacity opacity-0 group-hover:opacity-100">{{trendingMovie.original_title}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <h1 class="text-3xl font-bold mb-5 text-left">Nu beschikbaar</h1>
+        <div class="flex flex-row space-x-5 overflow-x-auto w-full">
+            <div *ngFor="let nowPlayingMovie of nowPlayingMovies" class="flex-shrink-0">
+                <img src="https://image.tmdb.org/t/p/original/{{nowPlayingMovie.poster_path}}" alt="poster foto van {{nowPlayingMovie.original_title}}" class="h-60 w-42 shadow-2xl rounded-md cursor-pointer">
+                <p class="movie-title absolute top-0 left-0 right-0 bg-black bg-opacity-75 text-white text-center p-2 transition-opacity opacity-0 group-hover:opacity-100">{{nowPlayingMovie.original_title}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <h1 class="text-3xl font-bold mb-5 text-left">Binnenkort op Global Netflix</h1>
+        <div class="flex flex-row space-x-5 overflow-x-auto w-full">
+            <div *ngFor="let upcomingMovie of upcomingMovies" class="flex-shrink-0">
+                <img src="https://image.tmdb.org/t/p/original/{{upcomingMovie.poster_path}}" alt="poster foto van {{upcomingMovie.original_title}}" class="h-60 w-42 shadow-2xl rounded-md cursor-pointer">
+                <p class="movie-title absolute top-0 left-0 right-0 bg-black bg-opacity-75 text-white text-center p-2 transition-opacity opacity-0 group-hover:opacity-100">{{upcomingMovie.original_title}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,20 +1,31 @@
 import { Component } from '@angular/core';
-import { MovieApiService } from './movie-api.service';
+import { MovieApiService } from '../../services/movie-api.service';
 
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
-  styleUrls: ['./movies.component.css']
+  styleUrls: []
 })
 export class MoviesComponent {
 
   constructor(private MovieService: MovieApiService) { }
 
-  movies: any[] = []; // Initialize as an empty array
+  trendingMovies: any[] = [];
+  nowPlayingMovies: any[] = [];
+  upcomingMovies: any[] = [];
 
   ngOnInit(): void {
-    this.MovieService.getMovies().subscribe((data: any) => {
-      this.movies = data.results; // Assign the array from the API response
+    this.MovieService.getTrendingMovies().subscribe((data: any) => {
+      this.trendingMovies = data.results;
+    });
+
+    this.MovieService.getNowPlayingMovies().subscribe((data: any) => {
+      this.nowPlayingMovies = data.results;
+    });
+
+    this.MovieService.getUpcomingMovies().subscribe((data: any) => {
+      this.upcomingMovies = data.results;
     });
   }
+
 }
