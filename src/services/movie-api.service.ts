@@ -35,4 +35,14 @@ export class MovieApiService {
       }
     })
   }
+
+  getBannerMovie() {
+    return this.http.get('https://api.themoviedb.org/3/movie/popular?language=en-US&page=2', {
+      headers: {
+        accept: 'application/json',
+        Authorization: `Bearer ${environment.apiKey}`
+      }
+    })
+  }
+
 }

@@ -13,6 +13,8 @@ export class MoviesComponent {
   trendingMovies: any[] = [];
   nowPlayingMovies: any[] = [];
   upcomingMovies: any[] = [];
+  bannerMovie: any;
+  
 
   ngOnInit(): void {
     this.MovieService.getTrendingMovies().subscribe((data: any) => {
@@ -25,6 +27,13 @@ export class MoviesComponent {
 
     this.MovieService.getUpcomingMovies().subscribe((data: any) => {
       this.upcomingMovies = data.results;
+    });
+
+    this.MovieService.getBannerMovie().subscribe((data: any) => {
+      if (data.results && data.results.length > 0) {
+        const randomIndex = Math.floor(Math.random() * data.results.length);
+        this.bannerMovie = data.results[randomIndex];
+      }
     });
   }
 
