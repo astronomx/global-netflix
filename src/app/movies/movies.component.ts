@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { MovieApiService } from '../../services/movie-api.service';
 
 @Component({
   selector: 'app-movies',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './movies.component.html',
   styleUrls: []
 })
@@ -17,9 +21,6 @@ export class MoviesComponent {
 
   airingTodaySeries: any[] = [];
   populairSeries: any[] = [];
-  
-  // Use an array to store details for each category
-  detailMovies: any[] = [];
 
   bannerMovie: any;
 
@@ -49,7 +50,10 @@ export class MoviesComponent {
     });
 
     this.movieService.getBannerMovie().subscribe((data: any) => {
-      this.bannerMovie = data.results[0];
+      if (data.results && data.results.length > 0) {
+        const randomIndex = Math.floor(Math.random() * data.results.length);
+        this.bannerMovie = data.results[randomIndex];
+      }
     });
   }
   

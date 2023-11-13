@@ -1,5 +1,7 @@
 <div class="flex flex-row justify-center space-x-5 mt-10">
-    <img src="https://image.tmdb.org/t/p/original/{{bannerMovie.poster_path}}" alt="poster foto van {{bannerMovie.original_title}}" class="h-auto w-96 cursor-pointer rounded-lg">
+    <a [routerLink]="['/movie', bannerMovie.id]">
+        <img src="https://image.tmdb.org/t/p/original/{{bannerMovie.poster_path}}" alt="poster foto van {{bannerMovie.original_title}}" class="h-auto w-96 cursor-pointer rounded-lg">
+    </a>
 
     <div class="flex flex-col w-56 space-y-2">
         <h1 class="font-bold text-2xl text-left">{{bannerMovie.original_title}}</h1>
@@ -14,8 +16,9 @@
         <h1 class="text-3xl font-bold mb-5 text-left">Trending</h1>
         <div class="flex flex-row space-x-5 overflow-x-auto w-full">
             <div *ngFor="let trendingMovie of trendingMovies" class="flex-shrink-0">
-                <img src="https://image.tmdb.org/t/p/original/{{trendingMovie.poster_path}}" alt="poster foto van {{trendingMovie.original_title}}" class="h-72 w-48 shadow-2xl rounded-md cursor-pointer">
-                <p class="movie-title absolute top-0 left-0 right-0 bg-black bg-opacity-75 text-white text-center p-2 transition-opacity opacity-0 group-hover:opacity-100">{{trendingMovie.original_title}}</p>
+                <a [routerLink]="['/movie', trendingMovie.id]">
+                    <img src="https://image.tmdb.org/t/p/original/{{trendingMovie.poster_path}}" alt="poster foto van {{trendingMovie.original_title}}" class="h-72 w-48 shadow-2xl rounded-md cursor-pointer">
+                </a>
             </div>
         </div>
     </div>
@@ -24,8 +27,9 @@
         <h1 class="text-3xl font-bold mb-5 text-left">Nieuwe releases</h1>
         <div class="flex flex-row space-x-5 overflow-x-auto w-full">
             <div *ngFor="let nowPlayingMovie of nowPlayingMovies" class="flex-shrink-0">
-                <img src="https://image.tmdb.org/t/p/original/{{nowPlayingMovie.poster_path}}" alt="poster foto van {{nowPlayingMovie.original_title}}" class="h-72 w-48 shadow-2xl rounded-md cursor-pointer">
-                <p class="movie-title absolute top-0 left-0 right-0 bg-black bg-opacity-75 text-white text-center p-2 transition-opacity opacity-0 group-hover:opacity-100">{{nowPlayingMovie.original_title}}</p>
+                <a [routerLink]="['/movie', nowPlayingMovie.id]">
+                    <img src="https://image.tmdb.org/t/p/original/{{nowPlayingMovie.poster_path}}" alt="poster foto van {{nowPlayingMovie.original_title}}" class="h-72 w-48 shadow-2xl rounded-md cursor-pointer">
+                </a>
             </div>
         </div>
     </div>
@@ -34,8 +38,9 @@
         <h1 class="text-3xl font-bold mb-5 text-left">Series met lovende kritieken</h1>
         <div class="flex flex-row space-x-5 overflow-x-auto w-full">
             <div *ngFor="let airingTodaySerie of airingTodaySeries" class="flex-shrink-0">
-                <img src="https://image.tmdb.org/t/p/original/{{airingTodaySerie.poster_path}}" alt="poster foto van {{airingTodaySerie.original_title}}" class="h-72 w-48 shadow-2xl rounded-md cursor-pointer">
-                <p class="movie-title absolute top-0 left-0 right-0 bg-black bg-opacity-75 text-white text-center p-2 transition-opacity opacity-0 group-hover:opacity-100">{{airingTodaySerie.original_title}}</p>
+                <a [routerLink]="['/movie', airingTodaySerie.id]">
+                    <img src="https://image.tmdb.org/t/p/original/{{airingTodaySerie.poster_path}}" alt="poster foto van {{airingTodaySerie.original_title}}" class="h-72 w-48 shadow-2xl rounded-md cursor-pointer">
+                </a>
             </div>
         </div>
     </div>
@@ -44,8 +49,9 @@
         <h1 class="text-3xl font-bold mb-5 text-left">Binnenkort op Global Netflix</h1>
         <div class="flex flex-row space-x-5 overflow-x-auto w-full">
             <div *ngFor="let upcomingMovie of upcomingMovies" class="flex-shrink-0">
-                <img src="https://image.tmdb.org/t/p/original/{{upcomingMovie.poster_path}}" alt="poster foto van {{upcomingMovie.original_title}}" class="h-72 w-48 shadow-2xl rounded-md cursor-pointer">
-                <p class="movie-title absolute top-0 left-0 right-0 bg-black bg-opacity-75 text-white text-center p-2 transition-opacity opacity-0 group-hover:opacity-100">{{upcomingMovie.original_title}}</p>
+                <a [routerLink]="['/movie', upcomingMovie.id]">
+                    <img src="https://image.tmdb.org/t/p/original/{{upcomingMovie.poster_path}}" alt="poster foto van {{upcomingMovie.original_title}}" class="h-72 w-48 shadow-2xl rounded-md cursor-pointer">
+                </a>
             </div>
         </div>
     </div>
@@ -54,8 +60,9 @@
         <h1 class="text-3xl font-bold mb-5 text-left">Best bekeken</h1>
         <div class="flex flex-row space-x-5 overflow-x-auto w-full">
             <div *ngFor="let topRatedMovie of topRatedMovies" class="flex-shrink-0">
-                <img src="https://image.tmdb.org/t/p/original/{{topRatedMovie.poster_path}}" alt="poster foto van {{topRatedMovie.original_title}}" class="h-72 w-48 shadow-2xl rounded-md cursor-pointer">
-                <p class="movie-title absolute top-0 left-0 right-0 bg-black bg-opacity-75 text-white text-center p-2 transition-opacity opacity-0 group-hover:opacity-100">{{topRatedMovie.original_title}}</p>
+                <a [routerLink]="['/movie', topRatedMovie.id]">
+                    <img src="https://image.tmdb.org/t/p/original/{{topRatedMovie.poster_path}}" alt="poster foto van {{topRatedMovie.original_title}}" class="h-72 w-48 shadow-2xl rounded-md cursor-pointer">
+                </a>
             </div>
         </div>
     </div>
@@ -64,8 +71,9 @@
         <h1 class="text-3xl font-bold mb-5 text-left">We denken dat je deze goed zult vinden</h1>
         <div class="flex flex-row space-x-5 overflow-x-auto w-full">
             <div *ngFor="let populairSerie of populairSeries" class="flex-shrink-0">
-                <img src="https://image.tmdb.org/t/p/original/{{populairSerie.poster_path}}" alt="poster foto van {{populairSerie.original_title}}" class="h-72 w-48 shadow-2xl rounded-md cursor-pointer">
-                <p class="movie-title absolute top-0 left-0 right-0 bg-black bg-opacity-75 text-white text-center p-2 transition-opacity opacity-0 group-hover:opacity-100">{{populairSerie.original_title}}</p>
+                <a [routerLink]="['/movie', populairSerie.id]">
+                    <img src="https://image.tmdb.org/t/p/original/{{populairSerie.poster_path}}" alt="poster foto van {{populairSerie.original_title}}" class="h-72 w-48 shadow-2xl rounded-md cursor-pointer">
+                </a>
             </div>
         </div>
     </div> 

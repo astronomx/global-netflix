@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { DetailsComponent } from 'src/app/details/details.component';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class MovieApiService {
 
   constructor(private http: HttpClient) { }
 
-  getMovie(id: number) {
+  getMovieDetail(id: number) {
     return this.http.get(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, {
       headers: {
         accept: 'application/json',
