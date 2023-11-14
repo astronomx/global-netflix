@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { NgHeroiconsModule } from "@dimaslz/ng-heroicons";
 
 import { MovieApiService } from 'src/services/movie-api.service';
@@ -16,9 +16,10 @@ import { MovieApiService } from 'src/services/movie-api.service';
   ]
 })
 export class DetailsComponent {
+
   route: ActivatedRoute = inject(ActivatedRoute);
 
-  movieDetails: any;
+  movieDetails: any;;
 
   constructor(private movieService: MovieApiService) { }
 
@@ -29,7 +30,6 @@ export class DetailsComponent {
     console.log(`Parameter ID: ${getParamId}`);
 
     this.getTrendingMovies(getParamId);
-
   }
 
   getTrendingMovies(id: any) {
