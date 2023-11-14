@@ -19,6 +19,24 @@ export class MovieApiService {
     })
   }
 
+  getSerieDetail(id: number) {
+    return this.http.get(`https://api.themoviedb.org/3/tv/${id}?language=en-US`, {
+      headers: {
+        accept: 'application/json',
+        Authorization: `Bearer ${environment.apiKey}`
+      }
+    })
+  }
+
+  getMovieReview(id: number) {
+    return this.http.get(`https://api.themoviedb.org/3/movie/${id}/reviews?language=en-US&page=1`, {
+      headers: {
+        accept: 'application/json',
+        Authorization: `Bearer ${environment.apiKey}`
+      }
+    })
+  } 
+
   getTrendingMovies() {
     return this.http.get('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', {
       headers: {

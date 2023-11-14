@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { NgHeroiconsModule } from "@dimaslz/ng-heroicons";
 
 import { MovieApiService } from 'src/services/movie-api.service';
@@ -13,13 +13,15 @@ import { MovieApiService } from 'src/services/movie-api.service';
   imports: [
     CommonModule,
     NgHeroiconsModule,
+    RouterModule,
   ]
 })
 export class DetailsComponent {
 
   route: ActivatedRoute = inject(ActivatedRoute);
 
-  movieDetails: any;;
+  movieDetails: any;
+  movieReviews: any;
 
   constructor(private movieService: MovieApiService) { }
 
@@ -36,6 +38,13 @@ export class DetailsComponent {
     this.movieService.getMovieDetail(id).subscribe((details: any) => {
       this.movieDetails = details;
       console.log(this.movieDetails);
+    })
+  }
+
+  getMovieReview(id: any) {
+    this.movieService.getMovieReview(id).subscribe((reviews: any) => {
+      this.movieReviews = reviews;
+      console.log(this.movieReviews);
     })
   }
 
